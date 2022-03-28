@@ -4,3 +4,6 @@ from django.db import models
 class Item(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
     status = models.BooleanField(null=False, blank=False, default=False)
+
+    def __string__(self):
+        return self.name
