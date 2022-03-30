@@ -7,4 +7,4 @@ class ItemForm(forms.ModelForm):
     class Meta:
         """ meta """
         model = Item
-        fields = ['name', 'done']
+        fields = ['name', 'status']

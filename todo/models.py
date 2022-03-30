@@ -4,14 +4,10 @@ from django.db import models
 
 
 class Item(models.Model):
-    """
-    item
-    """
+    """ item """
     name = models.CharField(max_length=50, null=False, blank=False)
     status = models.BooleanField(null=False, blank=False, default=False)
 
     def __str__(self):
-        """
-        string
-        """
+        """ string """
         return self.name
