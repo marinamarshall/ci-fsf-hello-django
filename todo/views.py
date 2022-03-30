@@ -19,11 +19,11 @@ def add_item(request):
     add item
     """
     if request.method == 'POST':
-        name = request.POST.get('item_name')
-        status = 'status' in request.POST
-        Item.objects.create(name=name, status=status)
-
-        return redirect('get_todo_list')
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            
+            return redirect('get_todo_list')
         form = ItemForm()
         context = {
             'form': form
