@@ -14,9 +14,7 @@ def get_todo_list(request):
 
 
 def add_item(request):
-    """
-    add item
-    """
+    """ add item """
     if request.method == 'POST':
         form = ItemForm(request.POST)
         if form.is_valid():
@@ -49,6 +47,7 @@ def edit_item(request, item_id):
 
 
 def toggle_item(request, item_id):
+    """ toggle item """
     item = get_object_or_404(Item, id=item_id)
     item.status = not item.status
     item.save()
@@ -56,6 +55,7 @@ def toggle_item(request, item_id):
 
 
 def delete_item(request, item_id):
+    """ delete item """
     item = get_object_or_404(Item, id=item_id)
     item.delete()
     return redirect('get_todo_list')
