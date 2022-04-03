@@ -15,6 +15,7 @@ def get_todo_list(request):
 
 def add_item(request):
     """ add item """
+    context = {}
     if request.method == 'POST':
         form = ItemForm(request.POST)
         if form.is_valid():
